@@ -14,7 +14,7 @@
 
 Documentation for [Node Badges](https://github.com/smashedr/node-badges).
 
-- https://docker-deploy.cssnr.com/
+- https://smashedr.github.io/node-badges-docs/
 
 These [docs](docs) are **written in plain text** using Markdown and built with [VitePress](https://vitepress.dev/).
 

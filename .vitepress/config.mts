@@ -4,10 +4,10 @@ import path from 'path'
 const settings = {
   base: '/node-badges-docs', // no trailing slash
   title: 'Node Badges',
-  name: 'Node Status Badges Server',
+  name: 'Node Badges',
   description: {
-    short: 'Node Status Badges Server.',
-    long: 'Node Status Badges Server.',
+    short: 'NodeJS Badge Server.',
+    long: 'Badge Server written in NodeJS and built with Docker.',
   },
   image: '/images/logo.png',
   color: '#ce2727',

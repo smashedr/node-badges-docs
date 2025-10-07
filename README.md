@@ -33,11 +33,11 @@ These [docs](docs) are **written in plain text** using Markdown and built with [
 
 ## Development
 
-To get started, clone the repository and run `npm i` then `npm run dev`.
+To get started, clone the repository and run `npm i` then `npm run docs`.
 
 ```shell
 npm install
-npm run dev
+npm run docs
 ```
 
 The site should now be available at: http://localhost:5173/

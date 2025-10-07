@@ -31,6 +31,8 @@ export default defineConfig({
     },
   },
 
+  ignoreDeadLinks: [/^https?:\/\/localhost/],
+
   title: settings.title,
   description: settings.description.short,
   head: [

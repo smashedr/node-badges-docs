@@ -27,10 +27,17 @@ To deploy to a Standalone Docker host, see [docker-compose.yaml](https://github.
 
 To deploy to a Swarm cluster using Traefik, see [docker-compose-swarm.yaml](https://github.com/smashedr/node-badges/blob/master/docker-compose-swarm.yaml).
 
-To run directly, you need to set the `REDIS_URL`.
+To run directly, you need to set the `REDIS_URL`. You can **NOT** use `localhost` in docker.
 
 ```shell
-docker run -e "REDIS_URL=redis://redis:6379" -p 80:80 ghcr.io/smashedr/node-badges:latest
+docker run -e "REDIS_URL=redis://redis:6379" -p 80:3000 ghcr.io/smashedr/node-badges:latest
+```
+
+Change `80` to the host port you want the app to listen on.  
+The container port should be `3000` unless you set the `PORT` variable.
+
+```shell
+docker run -e "REDIS_URL=redis://redis:6379" -e "PORT=80" -p 80:80 ghcr.io/smashedr/node-badges:latest
 ```
 
 ### Compose Examples
@@ -83,6 +90,55 @@ smashedr-node-badges_app    0.00%  80.52MiB
 smashedr-node-badges_nginx  0.00%  4.984MiB
 smashedr-node-badges_redis  0.00%  4.879MiB
 ```
+
+## Developing
+
+You can run the dev server with [Docker](#with-docker) compose or [Node](#with-node) run.
+
+### With Docker
+
+Docker includes Redis and live server reloading with the [docker-compose-dev.yaml](https://github.com/smashedr/node-badges/blob/master/docker-compose-dev.yaml) file.
+
+```shell
+docker compose -f "docker-compose-dev.yaml" up --build --remove-orphans --force-recreate
+```
+
+Then visit: http://localhost/
+
+<details><summary>How Live Reloading Works in Docker</summary>
+
+This mounts the `./src` directory into the container for live reloading with `nodemon`.
+
+To use a different source path set the `APP_FILES` environment variable to your source.
+
+For more details, see the [docker-compose-dev.yaml](https://github.com/smashedr/node-badges/blob/master/docker-compose-dev.yaml) file.
+
+---
+
+</details>
+
+### With Node
+
+Make sure you have a redis server running and set the `REDIS_URL` environment variable.
+
+```shell
+export REDIS_URL=redis://localhost:6379
+
+npm i
+npm run dev
+```
+
+Then visit: http://localhost:3000/
+
+### With Custom Port
+
+To use a different port set the `PORT` environment variable then run the dev server.
+
+```shell
+export PORT=8080
+```
+
+&nbsp;
 
 <!--@include: @include/wip.md-->
 

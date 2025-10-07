@@ -1,0 +1,20 @@
+{
+  "name": "node-badges-docs",
+  "private": true,
+  "scripts": {
+    "docs": "npm run docs:dev",
+    "docs:build": "vitepress build .",
+    "docs:deploy": "npm run get-contributors && npm run docs:build",
+    "docs:dev": "vitepress dev .",
+    "docs:preview": "vitepress preview .",
+    "prettier:check": "npx prettier --check .",
+    "prettier:write": "npx prettier --write ."
+  },
+  "dependencies": {
+    "@catppuccin/vitepress": "^0.1.2",
+    "vitepress": "^1.6.4"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}

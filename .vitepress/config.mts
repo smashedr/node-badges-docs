@@ -64,7 +64,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     siteTitle: settings.title,
-    logo: `${settings.base}/images/logo32.png`,
+    logo: `/images/logo32.png`,
     nav: [
       // { text: 'Home', link: '/' },
       { text: 'Get Started', link: '/guides/get-started' },

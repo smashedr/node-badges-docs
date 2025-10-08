@@ -49,32 +49,52 @@ function handleOutputClick(event) {
   <div class="badge-preview">
     <details>
       <summary>Click to View Available Links and Badges</summary>
-      <ul class="badge-preview-links">
-        <li @click="handleClick" :data-value="`${props.badgesUrl}/ghcr/size/${props.defaultRepo}`">
-          {{ props.badgesUrl }}/ghcr/size/{owner}/{package}
-        </li>
-        <li @click="handleClick" :data-value="`${props.badgesUrl}/ghcr/tags/${props.defaultRepo}/latest`">
-          {{ props.badgesUrl }}/ghcr/tags/{owner}/{package}/latest
-        </li>
-        <li @click="handleClick" :data-value="`${props.badgesUrl}/ghcr/tags/${props.defaultRepo}`">
-          {{ props.badgesUrl }}/ghcr/tags/{owner}/{package}
-        </li>
-        <li
-          @click="handleClick"
-          :data-value="`${props.badgesUrl}/yaml/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Frender.yaml/%24.services%5B0%5D.dockerCommand`"
-        >
-          {{ props.badgesUrl }}/yaml/{url}/{path}
-        </li>
-        <li
-          @click="handleClick"
-          :data-value="`${props.badgesUrl}/json/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Fpackage.json/%24.name`"
-        >
-          {{ props.badgesUrl }}/json/{url}/{path}
-        </li>
-      </ul>
       <p class="badge-preview-tip">
         💡 Tip: Click on a link to auto-fill the box or add <code>?color=red</code>
       </p>
+      <ul class="badge-preview-links">
+        <li>
+          <span @click="handleClick" :data-value="`${props.badgesUrl}/ghcr/size/${props.defaultRepo}`">
+            /ghcr/size/{owner}/{package}
+          </span>
+        </li>
+        <li>
+          <span @click="handleClick" :data-value="`${props.badgesUrl}/ghcr/tags/${props.defaultRepo}/latest`">
+            /ghcr/tags/{owner}/{package}/latest
+          </span>
+        </li>
+        <li>
+          <span @click="handleClick" :data-value="`${props.badgesUrl}/ghcr/tags/${props.defaultRepo}`">
+            /ghcr/tags/{owner}/{package}
+          </span>
+        </li>
+        <li>
+          <span
+            @click="handleClick"
+            :data-value="`${props.badgesUrl}/yaml/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Frender.yaml/%24.services%5B0%5D.dockerCommand`"
+          >
+            /yaml/{url}/{path}
+          </span>
+        </li>
+        <li>
+          <span
+            @click="handleClick"
+            :data-value="`${props.badgesUrl}/json/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Fpackage.json/%24.name`"
+          >
+            /json/{url}/{path}
+          </span>
+        </li>
+        <li>
+          <span @click="handleClick" :data-value="`${props.badgesUrl}/static/message`">
+            /static/{message}
+          </span>
+        </li>
+        <li>
+          <span @click="handleClick" :data-value="`${props.badgesUrl}/static/message/label`">
+            /static/{message}/{label}
+          </span>
+        </li>
+      </ul>
     </details>
 
     <label for="inputUrl">Badge URL</label>
@@ -159,7 +179,7 @@ function handleOutputClick(event) {
   object-fit: contain;
 }
 
-.badge-preview-links li {
+.badge-preview-links li > span {
   cursor: pointer;
 }
 .badge-preview input:first-of-type {

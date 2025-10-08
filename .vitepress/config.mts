@@ -4,12 +4,14 @@ import path from 'path'
 const settings = {
   base: '/node-badges-docs', // no trailing slash
   title: 'Node Badges',
+  siteTitle: 'Node Badges',
   name: 'Node Badges',
   description: {
     short: 'NodeJS Badge Server.',
     long: 'Badge Server written in NodeJS and built with Docker.',
   },
   image: '/images/logo.png',
+  image32: '/images/logo32.png',
   color: '#ce2727',
   source_repo: 'https://github.com/smashedr/node-badges',
   docs_repo: 'https://github.com/smashedr/node-badges-docs',
@@ -36,9 +38,9 @@ export default defineConfig({
   title: settings.title,
   description: settings.description.short,
   head: [
-    ['link', { rel: 'icon', type: 'image/x-icon', href: `${settings.base}/favicon.ico` }],
+    ['link', { rel: 'icon', type: 'image/x-icon', href: settings.base + '/favicon.ico' }],
     ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: settings.base + settings.image }],
-    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: `${settings.base}/images/logo32.png` }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: settings.base + settings.image32 }],
 
     ['meta', { name: 'darkreader-lock' }],
 
@@ -63,8 +65,8 @@ export default defineConfig({
   cleanUrls: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    siteTitle: settings.title,
-    logo: `/images/logo32.png`,
+    siteTitle: settings.siteTitle,
+    logo: settings.image32,
     nav: [
       // { text: 'Home', link: '/' },
       { text: 'Get Started', link: '/guides/get-started' },

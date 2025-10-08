@@ -25,6 +25,7 @@ const badges = [
         <a href="https://ko-fi.com/cssnr" target="_blank" rel="noopener">
           <!--<img alt="Ko-Fi" :src="`${site.base}images/ko-fi.gif`" />-->
           <!--<img alt="Ko-Fi" :src="`./images/ko-fi.gif`" />-->
+          <!--suppress HtmlUnknownTarget -->
           <img alt="Support Us on Ko-Fi" src="@public/images/ko-fi.gif" />
         </a>
       </div>

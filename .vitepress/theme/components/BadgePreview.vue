@@ -43,6 +43,29 @@ function handleOutputClick(event) {
   }
 }
 // const handleEncodeDebounce = debounce(handleEncode, 250)
+
+const links = [
+  [`${props.badgesUrl}/ghcr/size/${props.defaultRepo}`, '/ghcr/size/{owner}/{package}'],
+  [`${props.badgesUrl}/ghcr/tags/${props.defaultRepo}/latest`, '/ghcr/tags/{owner}/{package}/latest'],
+  [`${props.badgesUrl}/ghcr/tags/${props.defaultRepo}`, '/ghcr/tags/{owner}/{package}'],
+  [
+    `${props.badgesUrl}/yaml/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Frender.yaml/%24.services%5B0%5D.dockerCommand`,
+    '/yaml/{url}/{path}',
+  ],
+  [
+    `${props.badgesUrl}/json/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Fpackage.json/%24.name`,
+    '/json/{url}/{path}',
+  ],
+  [`${props.badgesUrl}/static/message`, '/static/{message}'],
+  [`${props.badgesUrl}/static/message/label`, '/static/{message}/{label}'],
+  [`${props.badgesUrl}/vt/id/YjJmYTllMDdlMjFlMGUyOWEwMGVlMTM3MTM0ZGUzNGI6MTc1OTk2MDE4MQ==`, '/vt/id/{sha}'],
+  [
+    `${props.badgesUrl}/vt/sha/sha256:d54fd9a93f2aa25b5c95128f84de1a624783ded6e66554c12a5ffd07546146e4`,
+    '/vt/sha/{sha}',
+  ],
+  [`${props.badgesUrl}/vt/cssnr/zipline-android/app-release.apk`, '/vt/{owner}/{repo}/{asset}'],
+  [`${props.badgesUrl}/vt/cssnr/zipline-android/app-release.apk/1.0.29`, '/vt/{owner}/{repo}/{asset}/{tag}'],
+]
 </script>
 
 <template>
@@ -53,70 +76,8 @@ function handleOutputClick(event) {
         💡 Tip: Click on a link to auto-fill the box or add <code>?color=red</code>
       </p>
       <ul class="badge-preview-links">
-        <li>
-          <span @click="handleClick" :data-value="`${props.badgesUrl}/ghcr/size/${props.defaultRepo}`">
-            /ghcr/size/{owner}/{package}
-          </span>
-        </li>
-        <li>
-          <span @click="handleClick" :data-value="`${props.badgesUrl}/ghcr/tags/${props.defaultRepo}/latest`">
-            /ghcr/tags/{owner}/{package}/latest
-          </span>
-        </li>
-        <li>
-          <span @click="handleClick" :data-value="`${props.badgesUrl}/ghcr/tags/${props.defaultRepo}`">
-            /ghcr/tags/{owner}/{package}
-          </span>
-        </li>
-        <li>
-          <span
-            @click="handleClick"
-            :data-value="`${props.badgesUrl}/yaml/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Frender.yaml/%24.services%5B0%5D.dockerCommand`"
-          >
-            /yaml/{url}/{path}
-          </span>
-        </li>
-        <li>
-          <span
-            @click="handleClick"
-            :data-value="`${props.badgesUrl}/json/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Fpackage.json/%24.name`"
-          >
-            /json/{url}/{path}
-          </span>
-        </li>
-        <li>
-          <span @click="handleClick" :data-value="`${props.badgesUrl}/static/message`">
-            /static/{message}
-          </span>
-        </li>
-        <li>
-          <span @click="handleClick" :data-value="`${props.badgesUrl}/static/message/label`">
-            /static/{message}/{label}
-          </span>
-        </li>
-        <li>
-          <span
-            @click="handleClick"
-            :data-value="`${props.badgesUrl}/vt/sha256:d54fd9a93f2aa25b5c95128f84de1a624783ded6e66554c12a5ffd07546146e4`"
-          >
-            /vt/{sha}
-          </span>
-        </li>
-        <li>
-          <span
-            @click="handleClick"
-            :data-value="`${props.badgesUrl}/vt/cssnr/zipline-android/app-release.apk`"
-          >
-            /vt/{owner}/{repo}/{asset}
-          </span>
-        </li>
-        <li>
-          <span
-            @click="handleClick"
-            :data-value="`${props.badgesUrl}/vt/cssnr/zipline-android/app-release.apk/1.0.29`"
-          >
-            /vt/{owner}/{repo}/{asset}/{tag}
-          </span>
+        <li v-for="link of links">
+          <span @click="handleClick" :data-value="link[0]"> {{ link[1] }} </span>
         </li>
       </ul>
     </details>

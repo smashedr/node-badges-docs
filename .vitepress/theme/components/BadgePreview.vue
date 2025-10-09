@@ -102,6 +102,14 @@ function handleOutputClick(event) {
             /vt/{owner}/{repo}/{asset}
           </span>
         </li>
+        <li>
+          <span
+            @click="handleClick"
+            :data-value="`${props.badgesUrl}/vt/cssnr/zipline-android/app-release.apk/1.0.29`"
+          >
+            /vt/{owner}/{repo}/{asset}/{tag}
+          </span>
+        </li>
       </ul>
     </details>
 

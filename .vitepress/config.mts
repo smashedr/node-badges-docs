@@ -91,6 +91,7 @@ export default defineConfig({
         },
         link: 'https://github.com/smashedr/node-badges/pkgs/container/node-badges',
       },
+      { icon: 'vitepress', link: settings.docs_repo },
       { icon: 'discord', link: 'https://discord.gg/wXy6m2X8wY' },
       { icon: 'kofi', link: 'https://ko-fi.com/cssnr' },
       {

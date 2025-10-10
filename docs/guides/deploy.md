@@ -4,9 +4,11 @@ pageClass: deploy-page
 
 # Deploy
 
+[[toc]]
+
 This is ready for deployment using both [Docker](#to-docker) and [Node](#to-node).
 
-If using [Node](#to-node) you need a [Redis](https://github.com/redis/redis) server.
+Docker is recommended. If using [Node](#to-node) you need a [Redis](https://github.com/redis/redis) server.
 
 Public Server:
 
@@ -16,6 +18,8 @@ https://badges.cssnr.com/
 
 [![Server Status](https://img.shields.io/website?url=https%3A%2F%2Fbadges.cssnr.com%2F&up_message=online&down_message=offline&style=for-the-badge&logo=nodedotjs&logoColor=white&label=server)](https://badges.cssnr.com/)
 [![Uptime](https://badges.cssnr.com/uptime?style=for-the-badge)](https://badges.cssnr.com/uptime?style=for-the-badge)
+[![Uptime Robot 7d](https://shields.cssnr.com/uptimerobot/ratio/7/m801549868-4eaa810d55bbf4039711a48a?logo=uptimekuma&logoColor=white&style=for-the-badge&label=Uptime%20%287d%29)](https://stats.uptimerobot.com/FNLsoJaKUf/801549868)
+[![Uptime Kuma 24h](https://uptime-nj.hosted-domains.com/api/badge/30/uptime?style=for-the-badge)](https://uptime-nj.hosted-domains.com/status/node-badges)
 
 ## To Docker
 
@@ -78,6 +82,23 @@ npm start
 ```
 
 To use without redis, install `node-cache`, comment out the redis lines, and uncomment the node-cache lines.
+
+## API Keys
+
+API Keys and secrets are provided as environment variables.
+
+| Variable       | Description                 |
+| :------------- | :-------------------------- |
+| `VT_API_KEY`   | VirusTotal API Token        |
+| `GITHUB_TOKEN` | GitHub PAT (no permissions) |
+
+Endpoints that require/recommend API keys.
+
+| Endpoint | Required   | Recommended  |
+| -------- | ---------- | ------------ |
+| `/vt/**` | VT_API_KEY | GITHUB_TOKEN |
+
+Currently, the only endpoints that require API keys are the VirusTotal endpoints.
 
 ## Resources
 

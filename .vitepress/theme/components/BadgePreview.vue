@@ -10,6 +10,8 @@ const props = defineProps({
   linkImage: { type: Boolean, default: false },
 })
 
+const baseUrl = ref(props.badgesUrl)
+
 const srcUrl = ref(`${props.badgesUrl}/ghcr/size/${props.defaultRepo}`)
 const imgUrl = ref(`${props.badgesUrl}/ghcr/size/${props.defaultRepo}`)
 const markdownUrl = ref(`![Alt Text](${props.badgesUrl}/ghcr/size/${props.defaultRepo})`)
@@ -27,9 +29,10 @@ function handleChange() {
 }
 
 function handleClick(event) {
-  imgUrl.value = event.target.dataset.value
-  srcUrl.value = event.target.dataset.value
-  setMdUrl(event.target.dataset.value)
+  const value = `${baseUrl.value}/${event.target.dataset.value}`
+  imgUrl.value = value
+  srcUrl.value = value
+  setMdUrl(value)
 }
 
 function handleEncode() {
@@ -45,26 +48,23 @@ function handleOutputClick(event) {
 // const handleEncodeDebounce = debounce(handleEncode, 250)
 
 const links = [
-  [`${props.badgesUrl}/ghcr/size/${props.defaultRepo}`, '/ghcr/size/{owner}/{package}'],
-  [`${props.badgesUrl}/ghcr/tags/${props.defaultRepo}/latest`, '/ghcr/tags/{owner}/{package}/latest'],
-  [`${props.badgesUrl}/ghcr/tags/${props.defaultRepo}`, '/ghcr/tags/{owner}/{package}'],
+  [`ghcr/size/${props.defaultRepo}`, '/ghcr/size/{owner}/{package}'],
+  [`ghcr/tags/${props.defaultRepo}/latest`, '/ghcr/tags/{owner}/{package}/latest'],
+  [`ghcr/tags/${props.defaultRepo}`, '/ghcr/tags/{owner}/{package}'],
   [
-    `${props.badgesUrl}/yaml/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Frender.yaml/%24.services%5B0%5D.dockerCommand`,
+    `yaml/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Frender.yaml/%24.services%5B0%5D.dockerCommand`,
     '/yaml/{url}/{path}',
   ],
   [
-    `${props.badgesUrl}/json/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Fpackage.json/%24.name`,
+    `json/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Fpackage.json/%24.name`,
     '/json/{url}/{path}',
   ],
-  [`${props.badgesUrl}/static/message`, '/static/{message}'],
-  [`${props.badgesUrl}/static/message/label`, '/static/{message}/{label}'],
-  [`${props.badgesUrl}/vt/id/YjJmYTllMDdlMjFlMGUyOWEwMGVlMTM3MTM0ZGUzNGI6MTc1OTk2MDE4MQ==`, '/vt/id/{sha}'],
-  [
-    `${props.badgesUrl}/vt/sha/sha256:d54fd9a93f2aa25b5c95128f84de1a624783ded6e66554c12a5ffd07546146e4`,
-    '/vt/sha/{sha}',
-  ],
-  [`${props.badgesUrl}/vt/cssnr/zipline-android/app-release.apk`, '/vt/{owner}/{repo}/{asset}'],
-  [`${props.badgesUrl}/vt/cssnr/zipline-android/app-release.apk/1.0.29`, '/vt/{owner}/{repo}/{asset}/{tag}'],
+  [`static/message`, '/static/{message}'],
+  [`static/message/label`, '/static/{message}/{label}'],
+  [`vt/id/YjJmYTllMDdlMjFlMGUyOWEwMGVlMTM3MTM0ZGUzNGI6MTc1OTk2MDE4MQ==`, '/vt/id/{sha}'],
+  [`vt/sha/sha256:d54fd9a93f2aa25b5c95128f84de1a624783ded6e66554c12a5ffd07546146e4`, '/vt/sha/{sha}'],
+  [`vt/cssnr/zipline-android/app-release.apk`, '/vt/{owner}/{repo}/{asset}'],
+  [`vt/cssnr/zipline-android/app-release.apk/1.0.29`, '/vt/{owner}/{repo}/{asset}/{tag}'],
 ]
 </script>
 
@@ -83,7 +83,7 @@ const links = [
     </details>
 
     <label for="inputUrl">Badge URL</label>
-    <textarea id="inputUrl" rows="3" style="width: 100%" v-model="srcUrl" @change="handleChange"></textarea>
+    <textarea id="inputUrl" rows="3" v-model="srcUrl" @change="handleChange"></textarea>
 
     <label for="inputUrl">Badge Result</label>
     <div class="badge-preview-badge">
@@ -92,13 +92,7 @@ const links = [
     </div>
 
     <label for="markdownUrl">Markdown URL Result</label>
-    <textarea
-      id="markdownUrl"
-      style="width: 100%"
-      v-model="markdownUrl"
-      @click="handleOutputClick"
-      readonly
-    ></textarea>
+    <textarea id="markdownUrl" v-model="markdownUrl" @click="handleOutputClick" readonly></textarea>
 
     <div class="">
       <input
@@ -137,6 +131,7 @@ const links = [
   border: 1px solid var(--vp-c-brand-1);
   border-radius: 8px;
   padding: 4px;
+  width: 100%;
 }
 #markdownUrl {
   border: 1px solid var(--vp-c-gray-1);

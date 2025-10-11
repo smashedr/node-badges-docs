@@ -4,8 +4,6 @@ pageClass: deploy-page
 
 # Deploy
 
-[[toc]]
-
 This is ready for deployment using both [Docker](#to-docker) and [Node](#to-node).
 
 Docker is recommended. If using [Node](#to-node) you need a [Redis](https://github.com/redis/redis) server.
@@ -18,8 +16,10 @@ https://badges.cssnr.com/
 
 [![Server Status](https://img.shields.io/website?url=https%3A%2F%2Fbadges.cssnr.com%2F&up_message=online&down_message=offline&style=for-the-badge&logo=nodedotjs&logoColor=white&label=server)](https://badges.cssnr.com/)
 [![Uptime](https://badges.cssnr.com/uptime?style=for-the-badge)](https://badges.cssnr.com/uptime?style=for-the-badge)
-[![Uptime Robot 7d](https://shields.cssnr.com/uptimerobot/ratio/7/m801549868-4eaa810d55bbf4039711a48a?logo=uptimekuma&logoColor=white&style=for-the-badge&label=Uptime%20%287d%29)](https://stats.uptimerobot.com/FNLsoJaKUf/801549868)
+[![Uptime Robot 7d](https://shields.cssnr.com/uptimerobot/ratio/7/m801549868-4eaa810d55bbf4039711a48a?logo=uptimekuma&logoColor=white&style=for-the-badge&label=%287d%29)](https://stats.uptimerobot.com/FNLsoJaKUf/801549868)
 [![Uptime Kuma 24h](https://uptime-nj.hosted-domains.com/api/badge/30/uptime?style=for-the-badge)](https://uptime-nj.hosted-domains.com/status/node-badges)
+
+[[toc]]
 
 ## To Docker
 
@@ -103,13 +103,13 @@ Currently, the only endpoints that require API keys are the VirusTotal endpoints
 ## Resources
 
 The app loads all [Simple Icon](https://simpleicons.org/) and [Lucide Icon](https://lucide.dev/icons/) into memory.
-This makes the base memory usage about `80 MB`. Therefore, you should allocate at least `100 MB` for request overhead.
+This makes the base memory usage about ~`100 MB`. Therefore, you should allocate at least `128 MB` for request overhead.
 
 ```text
-NAME                        CPU %  MEM USAGE
-smashedr-node-badges_app    0.00%  80.52MiB
-smashedr-node-badges_nginx  0.00%  4.984MiB
-smashedr-node-badges_redis  0.00%  4.879MiB
+NAME                         MEM USAGE
+smashedr-node-badges_app     95.31MiB
+smashedr-node-badges_redis   3.68MiB
+smashedr-node-badges_nginx   4.984MiB
 ```
 
 ## Developing

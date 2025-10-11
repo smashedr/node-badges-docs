@@ -1,7 +1,7 @@
 ---
 next:
-  text: 'Badges'
-  link: '/guides/badges'
+  text: 'Get Started'
+  link: '/guides/get-started'
 ---
 
 # Support

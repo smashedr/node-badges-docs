@@ -70,9 +70,9 @@ export default defineConfig({
     nav: [
       // { text: 'Home', link: '/' },
       { text: 'Get Started', link: '/guides/get-started' },
-      // { text: 'Badges', link: '/guides/badges' },
+      { text: 'Badges', link: '/guides/badges' },
       { text: 'Deploy', link: '/guides/deploy' },
-      { text: 'Support', link: '/support' },
+      // { text: 'Support', link: '/support' },
       // {
       //   text: 'Links',
       //   items: [
@@ -108,7 +108,7 @@ export default defineConfig({
         base: '/guides',
         items: [
           { text: 'Get Started', link: '/get-started' },
-          // { text: 'Badges', link: '/badges' },
+          { text: 'Badges', link: '/badges' },
           { text: 'Deploy', link: '/deploy' },
         ],
       },

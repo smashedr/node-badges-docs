@@ -14,9 +14,9 @@ hero:
     - text: Get Started
       link: /guides/get-started
       theme: brand
-    #- text: Badges
-    #  link: /guides/badges
-    #  theme: alt
+    - text: Badges
+      link: /guides/badges
+      theme: alt
     - text: Deploy
       link: /guides/deploy
       theme: alt
@@ -31,16 +31,19 @@ features:
   - title: Get Started
     link: /guides/get-started
     details: Create a Badge
-  #- title: Badges
-  #  link: /guides/badges
-  #  details: View Available Badges
+  - title: Badges
+    link: /guides/badges
+    details: View Available Badges
   - title: Deploy
     link: /guides/deploy
-    details: Deploy your Own Instance
+    details: Deploy an Instance
   - title: Support
     link: /support
     details: Get Help with Anything
-  #- title: GitHub
-  #  link: https://github.com/smashedr/node-badges?tab=readme-ov-file#readme
-  #  details: View Source Code
+  - title: GitHub
+    link: https://github.com/smashedr/node-badges?tab=readme-ov-file#readme
+    details: View Source Code
+  - title: Docker Image
+    link: https://github.com/smashedr/node-badges/pkgs/container/node-badges
+    details: Docker Image on GHCR
 ---

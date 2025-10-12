@@ -5,17 +5,17 @@ import { ref } from 'vue'
 
 // Props
 const props = defineProps({
-  badgesUrl: { type: String, default: 'https://badges.cssnr.com' },
-  defaultRepo: { type: String, default: 'smashedr/node-badges' },
+  url: { type: String, default: 'https://badges.cssnr.com' },
+  repo: { type: String, default: 'smashedr/node-badges' },
   linkImage: { type: Boolean, default: false },
 })
 
-const url = props.badgesUrl.endsWith('/') ? props.badgesUrl.slice(0, -1) : props.badgesUrl
+const url = props.url.endsWith('/') ? props.url.slice(0, -1) : props.url
 const baseUrl = ref(url)
 
-const srcUrl = ref(`${props.badgesUrl}/ghcr/size/${props.defaultRepo}`)
-const imgUrl = ref(`${props.badgesUrl}/ghcr/size/${props.defaultRepo}`)
-const markdownUrl = ref(`![Alt Text](${props.badgesUrl}/ghcr/size/${props.defaultRepo})`)
+const srcUrl = ref(`${props.url}/ghcr/size/${props.repo}`)
+const imgUrl = ref(`${props.url}/ghcr/size/${props.repo}`)
+const markdownUrl = ref(`![Alt Text](${props.url}/ghcr/size/${props.repo})`)
 
 const encodeInput = ref()
 const encodeOutput = ref()
@@ -49,9 +49,9 @@ function handleOutputClick(event) {
 // const handleEncodeDebounce = debounce(handleEncode, 250)
 
 const links = [
-  [`ghcr/size/${props.defaultRepo}`, '/ghcr/size/{owner}/{package}'],
-  [`ghcr/tags/${props.defaultRepo}/latest`, '/ghcr/tags/{owner}/{package}/latest'],
-  [`ghcr/tags/${props.defaultRepo}`, '/ghcr/tags/{owner}/{package}'],
+  [`ghcr/size/${props.repo}`, '/ghcr/size/{owner}/{package}'],
+  [`ghcr/tags/${props.repo}/latest`, '/ghcr/tags/{owner}/{package}/latest'],
+  [`ghcr/tags/${props.repo}`, '/ghcr/tags/{owner}/{package}'],
   [
     `yaml/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Frender.yaml/%24.services%5B0%5D.dockerCommand`,
     '/yaml/{url}/{path}',
@@ -95,7 +95,8 @@ const links = [
     <label for="markdownUrl">Markdown URL Result</label>
     <textarea id="markdownUrl" v-model="markdownUrl" @click="handleOutputClick" readonly></textarea>
 
-    <div class="">
+    <details>
+      <summary>Show URL Encode Tool</summary>
       <input
         id="encodeInput"
         placeholder="URL Encode Input (enter a value to encode it)"
@@ -112,7 +113,7 @@ const links = [
         readonly
       />
       <p class="badge-preview-tip">💡 Tip: Clicking on the result copies it to the clipboard.</p>
-    </div>
+    </details>
   </div>
 </template>
 

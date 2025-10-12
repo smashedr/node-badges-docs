@@ -17,6 +17,12 @@ Edit the URL or add query [Parameters](#parameters), then click outside the box 
 
 [JSONPath Explorer](https://jsonpath.com/)
 
+### Purge Cache
+
+You can purge the server cache by sending a `PURGE` request to the badge URL.
+
+<PurgeCache />
+
 ## Parameters
 
 These parameters are available for **all** badges.

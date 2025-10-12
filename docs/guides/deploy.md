@@ -112,6 +112,13 @@ smashedr-node-badges_redis   3.68MiB
 smashedr-node-badges_nginx   4.984MiB
 ```
 
+## Workflows
+
+You can copy my [deploy.yaml](https://github.com/smashedr/node-badges/blob/master/.github/workflows/deploy.yaml) which deploys to both Render and Portainer.
+This is also configured automatically after a successful [Build](https://github.com/smashedr/node-badges/blob/master/.github/workflows/build.yaml) job has completed, or manually.
+
+There is also `render.yaml` files for Dockerfile and Node deployments [here](https://github.com/smashedr/node-badges/tree/master/.github/render).
+
 ## Developing
 
 You can run the dev server with [Docker](#with-docker) compose or [Node](#with-node) run.

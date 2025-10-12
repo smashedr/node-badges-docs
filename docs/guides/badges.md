@@ -141,7 +141,7 @@ _Note: the badge at the top is also from this [docker-compose-swarm.yaml](https:
 
 ### Static Badge
 
-[![Cool Badge](https://intranet.cssnr.com/static/is%20cool/node-badges?lucide=badge-check)](https://intranet.cssnr.com/static/is%20cool/node-badges?lucide=badge-check)
+[![Cool Badge](https://badges.cssnr.com/static/is%20cool/node-badges?lucide=badge-check)](https://badges.cssnr.com/static/is%20cool/node-badges?lucide=badge-check)
 
 `/static/{message}`  
 `/static/{message}/{label}`

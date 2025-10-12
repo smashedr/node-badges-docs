@@ -10,7 +10,8 @@ const props = defineProps({
   linkImage: { type: Boolean, default: false },
 })
 
-const baseUrl = ref(props.badgesUrl)
+const url = props.badgesUrl.endsWith('/') ? props.badgesUrl.slice(0, -1) : props.badgesUrl
+const baseUrl = ref(url)
 
 const srcUrl = ref(`${props.badgesUrl}/ghcr/size/${props.defaultRepo}`)
 const imgUrl = ref(`${props.badgesUrl}/ghcr/size/${props.defaultRepo}`)

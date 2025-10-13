@@ -41,7 +41,7 @@ async function purgeClick(event) {
     <input v-model="purgeInput" id="purgeInput" :placeholder="props.placeholder" type="text" />
     <!--<a href="index.md" class="VPButton medium brand" type="button">Purge</a>-->
     <div class="purge-cache-controls">
-      <VPButton text="Purge" @click="purgeClick" style="margin: 0 0 12px 12px" />
+      <VPButton text="Purge" @click="purgeClick" style="margin: 0 0 4px 4px" />
       <div class="purge-cache-results">{{ purgeResults }}</div>
     </div>
   </div>

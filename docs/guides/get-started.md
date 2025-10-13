@@ -13,7 +13,7 @@ prev:
 
 Edit the URL or add query [Parameters](#parameters), then click outside the box to see the changes.
 
-<BadgePreview />
+<BadgePreview   />
 
 [JSONPath Explorer](https://jsonpath.com/)
 

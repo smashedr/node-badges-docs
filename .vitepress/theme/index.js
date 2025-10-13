@@ -5,6 +5,7 @@ import './custom.css'
 import Layout from './Layout.vue'
 
 import BadgePreview from './components/BadgePreview.vue'
+import PurgeCache from './components/PurgeCache.vue'
 
 // import Contributors from '@cssnr/vitepress-plugin-contributors'
 // import '@cssnr/vitepress-plugin-contributors/style.css'
@@ -20,6 +21,7 @@ export default {
         app.component('Badge', VPBadge)
 
         app.component('BadgePreview', BadgePreview)
+        app.component('PurgeCache', PurgeCache)
 
         // app.component('Contributors', Contributors)
         // app.config.globalProperties.$contributors = contributors

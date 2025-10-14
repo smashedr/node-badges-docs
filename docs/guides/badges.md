@@ -2,7 +2,11 @@
 
 [[toc]]
 
-### GHCR Image Size
+::: info Badge Generator
+Make sure to check out the [Badge Generator](get-started.md)
+:::
+
+## GHCR Image Size
 
 [![Image Size](https://badges.cssnr.com/ghcr/size/smashedr/node-badges)](https://badges.cssnr.com/ghcr/size/smashedr/node-badges)
 
@@ -22,7 +26,7 @@ _For more options see the [Query Parameters](get-started.md#parameters)._
 https://badges.cssnr.com/ghcr/size/smashedr/node-badges?labelColor=blueviolet&lucide=scale&color=seagreen&style=for-the-badge&label=node%20badges
 ```
 
-### GHCR Image Tags
+## GHCR Image Tags
 
 [![Image Latest](https://badges.cssnr.com/ghcr/tags/smashedr/node-badges/latest)](https://badges.cssnr.com/ghcr/tags/smashedr/node-badges/latest)
 [![Image Tags](https://badges.cssnr.com/ghcr/tags/smashedr/node-badges)](https://badges.cssnr.com/ghcr/tags/smashedr/node-badges)
@@ -50,22 +54,27 @@ You can also change the `sep` parameter, add `reversed` and filter by valid `sem
 https://badges.cssnr.com/ghcr/tags/smashedr/node-badges?labelColor=plum&lucide=activity&iconColor=black&color=paleturquoise&style=for-the-badge&label=last%20four&n=4&sep=-&reversed&semver
 ```
 
-### VirusTotal Release and Files
+## VirusTotal Release and Files
 
 [![VT Hash](https://badges.cssnr.com/vt/sha/sha256:d54fd9a93f2aa25b5c95128f84de1a624783ded6e66554c12a5ffd07546146e4)](https://badges.cssnr.com/vt/sha/sha256:d54fd9a93f2aa25b5c95128f84de1a624783ded6e66554c12a5ffd07546146e4)
 [![VT Release](https://badges.cssnr.com/vt/cssnr/zipline-android/app-release.apk)](https://badges.cssnr.com/vt/cssnr/zipline-android/app-release.apk)
 
 `/vt/id/{id}`  
-`/vt/sha/{sha}`  
 `/vt/{owner}/{repo}/{asset}`  
 `/vt/{owner}/{repo}/{asset}/{tag}`
 
-The `id` endpoint is used for VirusTotal File ID, and `sha` for a file hash/digest.
+::: warning
+Going forward you **need** to use the file hash: `SHA-256`, `SHA-1` or `MD5`.  
+File ID's (which end with `==`) consume API calls where hashes do not.  
+You **MUST** also update the endpoint to: `/vt/id/{hash}`  
+File ID's will continue to work for existing badges; however, DO NOT ADD MORE!
+:::
 
-- https://badges.cssnr.com/vt/id/YjJmYTllMDdlMjFlMGUyOWEwMGVlMTM3MTM0ZGUzNGI6MTc1OTk2MDE4MQ==
-- https://badges.cssnr.com/vt/sha/sha256:d54fd9a93f2aa25b5c95128f84de1a624783ded6e66554c12a5ffd07546146e4
+- https://badges.cssnr.com/vt/id/sha256:d54fd9a93f2aa25b5c95128f84de1a624783ded6e66554c12a5ffd07546146e4
 - https://badges.cssnr.com/vt/cssnr/zipline-android/app-release.apk
 - https://badges.cssnr.com/vt/cssnr/zipline-android/app-release.apk/1.0.29
+
+The `hash` is the file's `SHA-256`, `SHA-1` or `MD5`. The prefix is optional and can be `sha256:xxxx` or just `xxxx`.
 
 The `owner/repo/asset` endpoints use the latest/tagged release asset for the repository.
 
@@ -117,7 +126,7 @@ function getRangedColor(req, index, options = {}) {
 > This service does not upload the file to VirusTotal for analysis, it only fetches the result.  
 > You can do this automatically with the [cssnr/virustotal-action](https://github.com/cssnr/virustotal-action) GitHub action.
 
-### JSON/YAML JSONPath
+## JSON/YAML JSONPath
 
 [![App Image](https://badges.cssnr.com/yaml/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Fdocker-compose-swarm.yaml/%24.services.app.image?lucide=container&label=image)](https://badges.cssnr.com/yaml/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr%2Fnode-badges%2Frefs%2Fheads%2Fmaster%2Fdocker-compose-swarm.yaml/%24.services.app.image?lucide=container&label=image)
 
@@ -139,7 +148,7 @@ https://badges.cssnr.com/yaml/https%3A%2F%2Fraw.githubusercontent.com%2Fsmashedr
 
 _Note: the badge at the top is also from this [docker-compose-swarm.yaml](https://github.com/smashedr/node-badges/blob/master/docker-compose-swarm.yaml#L40) file._
 
-### Static Badge
+## Static Badge
 
 [![Cool Badge](https://badges.cssnr.com/static/is%20cool/node-badges?lucide=badge-check)](https://badges.cssnr.com/static/is%20cool/node-badges?lucide=badge-check)
 

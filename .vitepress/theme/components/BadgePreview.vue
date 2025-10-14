@@ -62,8 +62,7 @@ const links = [
   ],
   [`static/message`, '/static/{message}'],
   [`static/message/label`, '/static/{message}/{label}'],
-  [`vt/id/YjJmYTllMDdlMjFlMGUyOWEwMGVlMTM3MTM0ZGUzNGI6MTc1OTk2MDE4MQ==`, '/vt/id/{sha}'],
-  [`vt/sha/sha256:d54fd9a93f2aa25b5c95128f84de1a624783ded6e66554c12a5ffd07546146e4`, '/vt/sha/{sha}'],
+  [`vt/id/sha256:d54fd9a93f2aa25b5c95128f84de1a624783ded6e66554c12a5ffd07546146e4`, '/vt/id/{sha}'],
   [`vt/cssnr/zipline-android/app-release.apk`, '/vt/{owner}/{repo}/{asset}'],
   [`vt/cssnr/zipline-android/app-release.apk/1.0.29`, '/vt/{owner}/{repo}/{asset}/{tag}'],
 ]

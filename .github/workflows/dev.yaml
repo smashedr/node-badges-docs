@@ -35,7 +35,8 @@ jobs:
       contents: read
     with:
       name: "dev"
-      url: "https://dev-static.cssnr.com/"
+      url: "https://dev-static.cssnr.com/node-badges-docs"
+      path: "node-badges-docs"
       robots: true
     secrets:
       host: ${{ secrets.DEV_DEPLOY_HOST }}

@@ -48,4 +48,10 @@ These parameters are specific to certain badges.
 | `split`    |    -    | Split the item at the delimiter.                                                 |
 | `index`    |   `0`   | Index of item after splitting.                                                   |
 
+### Purge Cache
+
+You can purge the server cache by sending a `PURGE`/`POST` request to the badge URL.
+
+<PurgeCache    />
+
 <!--@include: @include/wip.md-->

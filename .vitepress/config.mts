@@ -110,6 +110,7 @@ export default defineConfig({
           { text: 'Get Started', link: '/get-started' },
           { text: 'Badges', link: '/badges' },
           { text: 'Deploy', link: '/deploy' },
+          { text: 'Render', link: '/render' },
         ],
       },
       // {

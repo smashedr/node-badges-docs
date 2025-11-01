@@ -166,6 +166,22 @@ To use a different port set the `PORT` environment variable then run the dev ser
 export PORT=8080
 ```
 
+## Environment Variables
+
+Available environment variables.
+
+| Variable        |       Default        | Description&nbsp;of&nbsp;Variable |
+| :-------------- | :------------------: | :-------------------------------- |
+| `DEBUG`         |          -           | Enable Logging: `app:*`           |
+| `INFLUX_URL`    |          -           | InfluxDB URL                      |
+| `INFLUX_TOKEN`  |          -           | InfluxDB Token                    |
+| `INFLUX_ORG`    |       `cssnr`        | InfluxDB Organization             |
+| `INFLUX_BUCKET` |      `general`       | InfluxDB Bucket Name              |
+| `VT_API_KEY`    |          -           | VirusTotal API Token              |
+| `GITHUB_TOKEN`  |          -           | GitHub PAT (no permissions)       |
+| `REDIS_URL`     | `redis://redis:6379` | Redis URL                         |
+| `PORT`          |        `3000`        | App Listen Port                   |
+
 &nbsp;
 
 <!--@include: @include/wip.md-->

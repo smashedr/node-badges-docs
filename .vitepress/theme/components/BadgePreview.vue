@@ -13,9 +13,9 @@ const props = defineProps({
 const url = props.url.endsWith('/') ? props.url.slice(0, -1) : props.url
 const baseUrl = ref(url)
 
-const srcUrl = ref(`${props.url}/ghcr/size/${props.repo}`)
-const imgUrl = ref(`${props.url}/ghcr/size/${props.repo}`)
-const markdownUrl = ref(`![Alt Text](${props.url}/ghcr/size/${props.repo})`)
+const srcUrl = ref(`${url}/ghcr/size/${props.repo}`)
+const imgUrl = ref(`${url}/ghcr/size/${props.repo}`)
+const markdownUrl = ref(`![Alt Text](${url}/ghcr/size/${props.repo})`)
 
 const encodeInput = ref()
 const encodeOutput = ref()

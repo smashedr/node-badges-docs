@@ -6,8 +6,6 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
 
 // Props
 const props = defineProps({
-  url: { type: String, default: 'https://badges.cssnr.com' },
-  repo: { type: String, default: 'smashedr/node-badges' },
   placeholder: { type: String, default: 'Badge URL to Purge.' },
 })
 
@@ -21,7 +19,7 @@ async function purgeClick(event) {
   try {
     const url = new URL(purgeInput.value)
     // console.log('url:', url)
-    const response = await fetch(url, { method: 'PURGE' })
+    const response = await fetch(url, { method: 'POST' })
     // console.log('response:', response)
     console.log('response.status:', response.status)
     const text = await response.text()

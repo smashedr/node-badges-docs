@@ -21,12 +21,15 @@ jobs:
     name: "Build"
     if: ${{ !contains(github.event.head_commit.message, '#nodev') }}
     uses: cssnr/workflows/.github/workflows/npm-build.yaml@master
-    secrets: inherit
     permissions:
       contents: read
     with:
       build: "npm run docs:build"
       path: ".vitepress/dist"
+    secrets:
+      webhook: ${{ secrets.DISCORD_WEBHOOK }}
+      ai_chat_api: ${{ secrets.AI_CHAT_API }}
+      ai_chat_auth: ${{ secrets.AI_CHAT_AUTH }}
 
   deploy:
     name: "Deploy"

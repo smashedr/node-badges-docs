@@ -1,13 +1,15 @@
-name: "Dev"
+name: "Preview"
 
 on:
   workflow_dispatch:
   push:
-    branches-ignore: [master]
+    branches-ignore: [master, legacy]
     paths:
-      - ".github/workflows/dev.yaml"
+      - ".github/workflows/build.yaml"
+      - ".github/workflows/preview.yaml"
       - ".vitepress/**"
       - "docs/**"
+      - "src/**"
       - "package*.json"
 
 concurrency:
@@ -26,6 +28,8 @@ jobs:
       path: ".vitepress/dist"
     secrets:
       webhook: ${{ secrets.DISCORD_WEBHOOK }}
+      ai_chat_api: ${{ secrets.AI_CHAT_API }}
+      ai_chat_auth: ${{ secrets.AI_CHAT_AUTH }}
 
   deploy:
     name: "Deploy"
@@ -34,7 +38,7 @@ jobs:
     permissions:
       contents: read
     with:
-      name: "dev"
+      name: "preview"
       url: "https://dev-static.cssnr.com/node-badges-docs"
       path: "node-badges-docs"
       robots: true
@@ -44,3 +48,25 @@ jobs:
       user: ${{ secrets.DEV_DEPLOY_USER }}
       pass: ${{ secrets.DEV_DEPLOY_PASS }}
       webhook: ${{ secrets.DISCORD_WEBHOOK }}
+
+  lint:
+    name: "Lint"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: ${{ !contains(github.event.head_commit.message, '#nolint') }}
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v6
+
+      - name: "Setup Node"
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: "install"
+        id: install
+        run: npm ci
+
+      - name: "prettier"
+        if: ${{ !cancelled() }}
+        run: npm run prettier:check

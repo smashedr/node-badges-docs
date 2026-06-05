@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "docs": "npm run docs:dev",
-    "docs:build": "vitepress build .",
     "docs:dev": "vitepress dev .",
+    "docs:build": "vitepress build .",
     "docs:preview": "vitepress preview .",
     "prettier:check": "npx prettier --check .",
     "prettier:write": "npx prettier --write ."
@@ -14,6 +14,7 @@
     "vitepress": "^1.6.4"
   },
   "devDependencies": {
-    "prettier": "^3.6.2"
+    "@cssnr/vitepress-chat": "github:smashedr/vitepress-chat#0.0.11",
+    "prettier": "^3.8.3"
   }
 }

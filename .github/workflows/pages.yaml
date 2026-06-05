@@ -8,6 +8,7 @@ on:
       - ".github/workflows/pages.yaml"
       - ".vitepress/**"
       - "docs/**"
+      - "src/**"
       - "package*.json"
 
 env:
@@ -21,8 +22,9 @@ concurrency:
 jobs:
   build:
     name: "Build"
-    if: ${{ !contains(github.event.head_commit.message, '#nodeploy') }}
+    if: ${{ !contains(github.event.head_commit.message, '#nodeploy') || github.actor != 'dependabot[bot]' }}
     uses: cssnr/workflows/.github/workflows/npm-build.yaml@master
+    secrets: inherit
     permissions:
       contents: read
     with:
@@ -58,7 +60,7 @@ jobs:
           description: ${{ steps.deployment.outputs.page_url }}
 
   post:
-    name: "Post-Deploy"
+    name: "Post"
     runs-on: ubuntu-latest
     timeout-minutes: 5
     needs: deploy
@@ -73,7 +75,7 @@ jobs:
 
       - name: "Algolia Crawler"
         if: ${{ env.crawler-id != '' }}
-        uses: cssnr/algolia-crawler-action@v1
+        uses: cssnr/algolia-crawler-action@v2
         with:
           crawler_id: ${{ env.crawler-id }}
           crawler_user_id: ${{ secrets.CRAWLER_USER_ID }}
@@ -84,4 +86,4 @@ jobs:
         uses: sarisia/actions-status-discord@v1
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          description: ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}
+          description: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

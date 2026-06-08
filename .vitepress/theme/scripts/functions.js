@@ -5,9 +5,9 @@
  * @param {Number} timeout
  */
 export function debounce(fn, timeout = 500) {
-    let timeoutID
-    return (...args) => {
-        clearTimeout(timeoutID)
-        timeoutID = setTimeout(() => fn(...args), timeout)
-    }
+  let timeoutID
+  return (...args) => {
+    clearTimeout(timeoutID)
+    timeoutID = setTimeout(() => fn(...args), timeout)
+  }
 }

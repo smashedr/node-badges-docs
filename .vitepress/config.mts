@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 import path from 'path'
-import vitePressInstructions from '@cssnr/vitepress-chat/instructions-plugin'
+import instructions from 'vitepress-chat/instructions'
 
 const settings = {
   base: '/node-badges-docs', // no trailing slash
@@ -33,9 +33,7 @@ export default defineConfig({
         '@public': path.resolve(__dirname, '../docs/public'),
       },
     },
-    plugins: [
-      vitePressInstructions({ exclude: ['index.md', 'include/**', 'guides/include/**'], outputFilename: 'llms.txt' }),
-    ],
+    plugins: [instructions({ exclude: ['index.md', 'include/**', 'guides/include/**'], filePath: 'llms.txt' })],
   },
 
   ignoreDeadLinks: [/^https?:\/\/localhost/],

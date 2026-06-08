@@ -7,8 +7,8 @@ import Layout from './Layout.vue'
 import BadgePreview from './components/BadgePreview.vue'
 import PurgeCache from './components/PurgeCache.vue'
 
-import VitePressChat from '@cssnr/vitepress-chat'
-import '@cssnr/vitepress-chat/style.css'
+import chat from 'vitepress-chat'
+import 'vitepress-chat/style.css'
 
 // import Contributors from '@cssnr/vitepress-plugin-contributors'
 // import '@cssnr/vitepress-plugin-contributors/style.css'
@@ -20,10 +20,10 @@ export default {
 
   Layout: Layout,
 
-  ...VitePressChat(DefaultTheme, {
+  ...chat(DefaultTheme, {
     api: import.meta.env.VITE_AI_API,
     headers: import.meta.env.VITE_AI_AUTH ? { Authorization: import.meta.env.VITE_AI_AUTH } : undefined,
-    instructionsFile: 'llms.txt',
+    filePath: 'llms.txt',
   }),
 
   enhanceApp({ app }) {

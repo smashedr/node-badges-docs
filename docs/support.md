@@ -6,6 +6,15 @@ next:
 
 # Support
 
+<div class="badges">
+
+[![Features](https://img.shields.io/badge/features-brightgreen?style=for-the-badge&logo=rocket&logoColor=white)](https://github.com/smashedr/node-badges/issues/new?template=1-feature.yaml)
+[![Issues](https://img.shields.io/badge/issues-red?style=for-the-badge&logo=southwestairlines&logoColor=white)](https://github.com/smashedr/node-badges/issues)
+[![Discussions](https://img.shields.io/badge/discussions-blue?style=for-the-badge&logo=theconversation)](https://github.com/smashedr/node-badges/discussions)
+[![Discord](https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/wXy6m2X8wY)
+
+</div>
+
 If you have any troubles using the application, or run into any issues, please let us know!
 
 Every bug that can be reproduced will be fixed and Feature Request are highly desired.
@@ -38,11 +47,3 @@ If you run into any problems or find a bug, please [open an issue](https://githu
 You can chat with us about anything [on discord](https://discord.gg/wXy6m2X8wY).
 
 [![Chat on Discord](https://img.shields.io/badge/Chat_on_Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/wXy6m2X8wY)
-
-### General Feedback
-
-You can submit general feedback via the [web form](https://cssnr.github.io/feedback/?app=Node%20Badges).
-
-_This method is not recommended to [report issues](https://github.com/smashedr/node-badges/issues) or [request features](https://github.com/smashedr/node-badges/discussions/categories/feature-requests)._
-
-[https://cssnr.github.io/feedback/](https://cssnr.github.io/feedback/?app=Node%20Badges)

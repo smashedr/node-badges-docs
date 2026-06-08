@@ -72,9 +72,7 @@ const links = [
   <div class="badge-preview">
     <details>
       <summary>Click to View Available Links and Badges</summary>
-      <p class="badge-preview-tip">
-        💡 Tip: Click on a link to auto-fill the box or add <code>?color=red</code>
-      </p>
+      <p class="badge-preview-tip">💡 Tip: Click on a link to auto-fill the box or add <code>?color=red</code></p>
       <ul class="badge-preview-links">
         <li v-for="link of links">
           <span @click="handleClick" :data-value="link[0]"> {{ link[1] }} </span>

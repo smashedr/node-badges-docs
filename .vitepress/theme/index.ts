@@ -24,6 +24,7 @@ export default {
     api: import.meta.env.VITE_AI_API,
     headers: import.meta.env.VITE_AI_AUTH ? { Authorization: import.meta.env.VITE_AI_AUTH } : undefined,
     filePath: 'llms.txt',
+    // showReasoning: true,
   }),
 
   enhanceApp({ app }) {

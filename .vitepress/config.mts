@@ -33,7 +33,12 @@ export default defineConfig({
         '@public': path.resolve(__dirname, '../docs/public'),
       },
     },
-    plugins: [instructions({ exclude: ['index.md', 'include/**', 'guides/include/**'], filePath: 'llms.txt' })],
+    plugins: [
+      instructions({
+        filePath: 'llms.txt',
+        exclude: ['index.md', 'include/**', 'guides/include/**'],
+      }),
+    ],
   },
 
   ignoreDeadLinks: [/^https?:\/\/localhost/],
